@@ -41,12 +41,13 @@
         class="remember" 
         name="1" 
         shape="square"
+        checked-color="#07c160"
         v-model="rememberChecked"
       >
         记住账户
       </van-checkbox>
       <div style="margin: 16px;">
-        <van-button round block type="info" native-type="submit">
+        <van-button round block type="primary" native-type="submit">
           登陆
         </van-button>
       </div>

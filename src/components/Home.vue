@@ -35,7 +35,7 @@
      <div class="product_list">
 
      </div>
-     <van-tabbar v-model="tabbar_active">
+     <van-tabbar v-model="tabbar_active" active-color="#07c160">
       <van-tabbar-item icon="home-o">主页</van-tabbar-item>
       <van-tabbar-item icon="search">商城</van-tabbar-item>
       <van-tabbar-item icon="friends-o">预售</van-tabbar-item>

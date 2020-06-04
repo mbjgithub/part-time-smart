@@ -35,7 +35,7 @@
         :rules="[{ required: true, message: '请填写推荐人ID' }]"
       />
       <div style="margin: 16px;">
-        <van-button round block type="info" native-type="submit">
+        <van-button round block type="primary" native-type="submit">
           下一步
         </van-button>
       </div>
