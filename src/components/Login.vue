@@ -1,23 +1,56 @@
 <template>
   <div class="login">
-    <div class="operate">
-      <div class="go_back">返回</div>
-      <div class="register">注册</div>
-    </div>
-    <div class="title">登陆农场</div>
-    <div class="form">
-      <div class='item'>
-        <input type="number" placeholder="请输入手机号" v-model="formData.phone" />
+    <van-row type="flex" justify="space-between">
+      <van-col span="6">
+        <van-button
+          class="operate_button"
+          @click="goBack"
+          type="default"
+          size="large"
+        >
+          返回
+        </van-button>
+      </van-col>
+      <van-col span="6">
+        <van-button 
+          class="operate_button" 
+          @click="goToRegister" 
+          type="default" 
+          size="large"
+        >
+          注册
+        </van-button>
+      </van-col>
+    </van-row>
+    <van-row>
+      <van-col span="24" class="title" >登陆农场</van-col>
+    </van-row>
+    <van-form @submit="login">
+      <van-field
+        v-model="formData.phone"
+        placeholder="手机号"
+        :rules="[{ required: true, message: '请输入手机号' }]"
+      />
+      <van-field
+        v-model="formData.pwd"
+        type="password"
+        placeholder="密码"
+        :rules="[{ required: true, message: '请填写密码' }]"
+      />
+      <van-checkbox
+        class="remember" 
+        name="1" 
+        shape="square"
+        v-model="rememberChecked"
+      >
+        记住账户
+      </van-checkbox>
+      <div style="margin: 16px;">
+        <van-button round block type="info" native-type="submit">
+          登陆
+        </van-button>
       </div>
-      <div class="item">
-        <input type="password" placeholder="密码" v-model="formData.pwd" >
-      </div>
-      <div class="item">
-        <input type="checkbox" name="" id="">
-        <span>记住账户</span>
-      </div>
-      <div class="item login_button" @click="login">登陆</div>
-    </div>
+    </van-form>
     <div class="forget_pwd">忘记密码</div>
   </div>
 </template>
@@ -30,7 +63,8 @@ export default {
       formData: {
         phone: '',
         pwd: ''
-      }
+      },
+      rememberChecked: false
     }
   },
   methods: {
@@ -45,6 +79,12 @@ export default {
 
          }
        })
+    },
+    goBack(){
+      this.$router.go(-1)
+    },
+    goToRegister(){
+      this.$router.push('/Register')
     }
   }
 }
@@ -52,5 +92,22 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+  .operate_button{
+    border: none !important;
+  }
+  .operate_button::before{
+    background: none !important;
+  }
+  .title{
+    font-size: 2rem;
+    color: #333;
+    padding: 1rem 1rem 2rem;
+  }
+  .remember{
+    padding: .5rem 1rem;
+  }
+  .forget_pwd{
+    padding: 0 1rem;
+    color: #666;
+  }
 </style>

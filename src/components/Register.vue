@@ -1,25 +1,45 @@
 <template>
   <div class="register">
-    <div class="header">
-      <div class="go_back"><icon /></div>
-      <div class="register">注册</div>
-    </div>
-    <div class="form">
-      <div class='item'>
-        <div class="lable">手机号</div>
-        <input type="number" placeholder="请输入手机号" v-model="formData.phone" />
+    <van-nav-bar
+      class="header"
+      title="注册"
+      left-arrow
+      @click-left="goBack"
+    />
+    <van-form @submit="onSubmit">
+      <van-field
+        v-model="formData.phone"
+        name="手机号"
+        label="手机号"
+        placeholder="请输入手机号"
+        :rules="[{ required: true, message: '请输入手机号' }]"
+      />
+      <van-field class="code_box" name="code" label="验证码">
+        <template #input>
+          <van-field 
+            class="code_input" 
+            v-model="formData.code" 
+            placeholder="请填写验证码"
+            :rules="[{ required: true, message: '请填写验证码' }]"
+          />
+          <van-button native-type="button" @click="getCode" type="primary">
+            发送验证码
+          </van-button>
+        </template>
+      </van-field>
+      <van-field
+        v-model="formData.recommendID"
+        name="推荐人ID"
+        label="推荐人ID"
+        placeholder="推荐人为900开头的11位会员ID"
+        :rules="[{ required: true, message: '请填写推荐人ID' }]"
+      />
+      <div style="margin: 16px;">
+        <van-button round block type="info" native-type="submit">
+          下一步
+        </van-button>
       </div>
-      <div class="item">
-        <div class="lable">验证码</div>
-        <input type="password" placeholder="密码" v-model="formData.pwd" >
-        <div class="get_code" @click="getCode">获取验证码</div>
-      </div>
-      <div class="item">
-        <div class="lable">推荐人ID</div>
-        <input type="text" placeholder="推荐人为900开头的11位会员ID" v-model="recommendID">
-      </div>
-      <div class="item register_button" @click="register">下一步</div>
-    </div>
+    </van-form>
   </div>
 </template>
 
@@ -59,12 +79,27 @@ export default {
 
          }
        })
-    }
+    },
+    goBack(){
+      this.$router.go(-1)
+    },
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+  .header{
+    background-color: #07c160;
+  }
+  .code_box{
+    justify-content: space-between;
+  }
+  .code_input{
+    width: 59%;
+    padding: 0;
+  }
+  .code_input::after{
+    border: none !important;
+  }
 </style>
