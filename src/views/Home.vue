@@ -31,21 +31,20 @@
       </van-grid>
     </div>
      <van-cell title="商城广告" icon='volume-o' />
-     <van-cell title="热销商城" value="更多" is-link class='hot_shopping' />
+     <van-cell title="热销商城" value="更多" is-link class='hot_shopping' to="/Mall" />
      <div class="product_list">
-
+       <HomeMall></HomeMall>
      </div>
-     <van-tabbar v-model="tabbar_active" active-color="#07c160">
-      <van-tabbar-item icon="home-o">主页</van-tabbar-item>
-      <van-tabbar-item icon="search">商城</van-tabbar-item>
-      <van-tabbar-item icon="friends-o">预售</van-tabbar-item>
-      <van-tabbar-item icon="setting-o">溯源</van-tabbar-item>
-      <van-tabbar-item icon="setting-o">我的</van-tabbar-item>
-    </van-tabbar>
+  <div>
+    <MainBottom></MainBottom>
+  </div>
   </div>
 </template>
 
 <script>
+import HomeMall from '../components/HomeMall'
+import MainBottom from '../components/MainBottom'
+
 export default {
   name: 'Home',
   data () {
@@ -53,6 +52,10 @@ export default {
       searchValue: '',
       tabbar_active: 0
     }
+  },
+  components: {
+    HomeMall : HomeMall,
+    MainBottom: MainBottom
   },
   methods: {
     register(){

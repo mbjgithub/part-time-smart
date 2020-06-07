@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Login from '@/components/Login'
-import Register from '@/components/Register'
-import Home from '@/components/Home'
+import Login from '@/views/Login'
+import Register from '@/views/Register'
+import Home from '@/views/Home'
+import Mall from '@/views/Mall'
+import GoodDetail from '@/views/GoodDetail'
 
 Vue.use(Router)
 
@@ -22,6 +24,16 @@ export default new Router({
       path: '/Home',
       name: 'Home',
       component: Home
+    },
+    {
+      path: '/mall',
+      name: 'Mall',
+      component: Mall
+    },
+    {
+      path: '/goodsdetail',
+      name: 'GoodDetail',
+      component: GoodDetail
     }
   ]
 })

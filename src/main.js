@@ -6,8 +6,10 @@ import router from './router'
 import http from './service'
 import Vant from 'vant';
 import 'vant/lib/index.css';
+import { Lazyload } from 'vant';
 
 Vue.use(Vant);
+Vue.use(Lazyload);
 
 Vue.prototype.$http = http
 Vue.config.productionTip = false
