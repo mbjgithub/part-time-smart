@@ -10,10 +10,6 @@ export default {
 }
 </script>
 <style>
-  .van-nav-bar__title,
-  .van-nav-bar .van-icon{
-    color: #fff !important;
-  }
   .van-cell::after{
     width: calc(100% - 32px);
   }

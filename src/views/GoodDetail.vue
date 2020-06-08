@@ -103,7 +103,7 @@ export default {
   text-align: center;
   color: #ffffff;
     position: relative;
-    margin: .88rem 0;
+    margin: 0.969rem 0;
 }
 .good_price .van-cell__label {
   color: #f56c6c !important;

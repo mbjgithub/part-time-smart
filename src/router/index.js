@@ -5,6 +5,9 @@ import Register from '@/views/Register'
 import Home from '@/views/Home'
 import Mall from '@/views/Mall'
 import GoodDetail from '@/views/GoodDetail'
+import Mycenter from '@/views/Mycenter'
+import Traceability from '@/views/Traceability'
+import Presale from '@/views/Presale'
 
 Vue.use(Router)
 
@@ -34,6 +37,22 @@ export default new Router({
       path: '/goodsdetail',
       name: 'GoodDetail',
       component: GoodDetail
+    },
+    {
+      path: '/Mycenter',
+      name: 'mycenter',
+      component: Mycenter
+    },
+    {
+      path: '/traceability',
+      name: 'Traceability',
+      component: Traceability
+    },
+    {
+      path: '/presale',
+      name: 'Presale',
+      component: Presale
     }
+
   ]
 })
